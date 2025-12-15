@@ -1,0 +1,22 @@
+import random
+
+a = 1  
+
+while True:
+    b = random.randint(1, 6)  
+    try:
+        c = int(input("enter a number from 1 to 6"))
+    except ValueError:
+        print("just enter the number")
+        continue
+
+    if c < 1 or c > 6:
+        print("the number must be between 1 and 6")
+        continue
+
+    if b == c:
+        print("beravo,you win.number of try:", a)
+        break
+    else:
+        print("you failed")
+        a += 1
