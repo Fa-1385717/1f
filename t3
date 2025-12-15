@@ -1,0 +1,28 @@
+import random
+from datetime import datetime, timedelta, time
+
+d = [
+    "Sara", "Nazi", "Maryam", "Zahra", "Elham",
+    "Parisa", "Niloofar", "Haniye", "Fateme", "Reyhane"
+]
+
+p = [
+    "Ali", "Reza", "Hossein", "Amir", "Mehdi",
+    "Mohammad", "Arman", "Sina", "Pouya", "Milad"
+]
+
+random.shuffle(p)
+
+start_date = datetime(2024, 6, 1)   # شروع از 1 ژوئن 2024
+gap = 10
+
+print("Blind Date Schedule:\n")
+
+for i in range(10):
+    date = start_date + timedelta(days=i*gap)
+    # ساعت رندوم بین 18 تا 21
+    hour = random.randint(18, 21)
+    minute = random.choice([0, 15, 30, 45])
+    date_time = date.replace(hour=hour, minute=minute)
+
+    print(f"{date_time.strftime('%Y-%m-%d %H:%M')} - {d[i]} 💑 {p[i]}")
